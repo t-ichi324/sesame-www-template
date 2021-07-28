@@ -1,0 +1,94 @@
+/* BS4 */
+
+[class*="col-"]:not(:last-child){
+  margin-bottom: 15px;
+}
+[class="row"]:not(:last-child){
+  margin-bottom: 15px;
+}
+
+/*
+a:visited:not(.btn) { color:rgb(91,155,213);}
+a:link:not(.btn){ color:rgb(91,155,213); }
+*/
+
+/* BTN */
+.btn-default{
+    color: #343a40 !important;
+    background-color: #fff;
+    border-color: #ced4da;
+}
+.btn-default:hover {
+  color: #343a40 !important;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+.btn-default:focus, .btn-default.focus {
+  box-shadow: 0 0 0 3px rgba(248, 249, 250, 0.5);
+}
+.btn-default.disabled, .btn-default:disabled {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+.btn-default:active, .btn-default.active{
+  background-color: #e2e6ea;
+  background-image: none;
+  border-color: #dae0e5;
+}
+.btn-orange{
+    color: #fff;
+    background-color: #f7ac31 !important;
+    border-color: #f7ac31;
+}
+.btn-orange:hover, .btn-orange.hover, .btn-orange.focus, .btn-orange:focus {
+    color: #fff;
+    background-color: #f7ac31;
+    background: #ffB53C;
+}
+.btn-orange:active, .btn-orange.active {
+    color: #fff;
+    background-color: #f7ac31;
+    background: #F8B951;
+}
+
+.btn.disabled, .btn[disabled] {
+    cursor: default;
+    border-color: #ddd;
+    background: #ddd;
+    color: #afafaf;
+}
+
+.navbar-toggler{
+    border-color:rgba(0,0,0,0) !important;
+}
+
+table.table thead th{ border-top-color: rgba(0,0,0,0);}
+
+.page-item.active.disabled .page-link{
+    color:#212529;
+}
+.breadcrumb{
+    background-color: #f8f9fa;
+    /*
+    background-color: #fff;
+    border-radius: 0;
+    border-bottom: 1px solid #eee;
+    */
+}
+
+.fixed-bottom{
+    z-index: 999;
+}
+.fixed-bottom .dropdown-item{
+    z-index: 1040;
+}
+
+input::placeholder { color: #bbb; }
+input:-ms-input-placeholder{ color: #bbb; }
+input::-ms-input-placeholder { color: #bbb; }
+textarea::placeholder { color: #0bb; }
+textarea:-ms-input-placeholder{ color: #bbb; }
+textarea::-ms-input-placeholder { color: #bbb; }
+.form-control::placeholder { color: #bbb; }
+.form-control:-ms-input-placeholder{ color: #bbb;  }
+.form-control::-ms-input-placeholder { color: #bbb; }

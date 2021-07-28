@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="default-kv">
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('user_role','sample','[SAMPLE]',0);
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('user_role','admin','Admin',9);
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('user_role','dev','Dev',10);
+        
+        insert into app_kv(`cl`,`key`,`val`,`sort`,`attr`) values('app_data_cl','howto','Howto html', 0, 'html');
+        insert into app_kv(`cl`,`key`,`val`,`sort`,`attr`) values('app_data_cl','about','AboutUs html', 1, 'html');
+        insert into app_kv(`cl`,`key`,`val`,`sort`,`attr`) values('app_data_cl','privacy','PrivacyPolicy text', 2, 'text');
+        insert into app_kv(`cl`,`key`,`val`,`sort`,`attr`) values('app_data_cl','terms','Terms text', 3, 'text');
+        
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('app_mail_cl','register','Register Mail', 1);
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('app_mail_cl','forgot','Forgot Mail', 2);
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('app_mail_cl','contact','Contact Mail', 3);
+        
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('contact_cl','consul','Consultation', 1);
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('contact_cl','other','Other', 2);
+    </sql>
+    
+    <sql key="default-user">
+        /* ID: test@test.com PW:a123 */
+        insert into user_actual(`id`,`email`,`password`,`roles`,`name`) values(1, 'test@test.com', '76af7efae0d034d1e3335ed1b90f24b6cadf2bf1', 'admin,dev', 'Admin');
+    </sql>
+</root>

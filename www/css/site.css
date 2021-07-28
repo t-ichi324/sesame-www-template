@@ -1,0 +1,23 @@
+/** page-top */
+#to-page-top{
+    display: none;
+    position: fixed;
+    right: 15px;
+    bottom: 25px;
+    z-index: 2000;
+}
+#to-page-top a{
+    display: block;
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background: #6495ed;
+    border-radius: 50%;
+    line-height: 50px;
+}
+#to-page-top a i{
+    font-size: 20px;
+    color:#fff;
+    line-height: 50px;
+}

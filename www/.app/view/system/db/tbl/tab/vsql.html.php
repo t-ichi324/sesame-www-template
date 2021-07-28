@@ -1,0 +1,1 @@
+<textarea class="form-control margin-md" style="min-height: 20em;" name="view_sql">{{*view_sql}}</textarea>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="select">
+        SELECT * FROM `user`
+        {{where}} {{group}} {{order}} {{limit}}
+    </sql>
+
+    <sql key="get" param="id">
+        SELECT * FROM `user`
+        WHERE
+            `id` = :id
+    </sql>
+
+</root>

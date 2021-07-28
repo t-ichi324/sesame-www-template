@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="login" param="id,pw">
+        SELECT id FROM user 
+        WHERE 
+            email = :id 
+            AND password= :pw
+    </sql>
+
+    <sql key="data" param="id,session_id">
+        SELECT id, email, name, company, roles, is_ban
+            ,term_start, term_end
+            /*
+            ,CASE WHEN (term_start IS NULL OR term_end &lt;= DATE(now())) THEN 0 ELSE 1 END AS err_term_start
+            ,CASE WHEN (term_end IS NULL OR term_end &gt;= DATE(now())) THEN 0 ELSE 1 END AS err_term_end
+            */
+        FROM user
+        WHERE
+            id = :id
+            AND (is_single = 0 OR session_id = :session_id)
+    </sql>
+    
+    <sql key="sid" param="id,session_id">
+        UPDATE user_actual
+        SET
+            session_id = :session_id
+        WHERE
+            id = :id
+    </sql>
+    
+</root>

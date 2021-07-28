@@ -1,0 +1,129 @@
+/* OPT */
+.center{ text-align: center; }
+.margin-xl{ margin-top: 240px; margin-bottom: 240px; }
+.margin-lg{ margin-top: 120px; margin-bottom: 120px; }
+.margin-md{ margin-top: 60px; margin-bottom: 60px; }
+.margin-sm{ margin-top: 30px; margin-bottom: 30px; }
+.margin-xs{ margin-top: 15px; margin-bottom: 15px; }
+.margin-xl-top{ margin-top: 240px;}
+.margin-lg-top{ margin-top: 120px;}
+.margin-md-top{ margin-top: 60px;}
+.margin-sm-top{ margin-top: 30px;}
+.margin-xs-top{ margin-top: 15px;}
+.margin-xl-bottom{ margin-bottom: 240px;}
+.margin-lg-bottom{ margin-bottom: 120px;}
+.margin-md-bottom{ margin-bottom: 60px;}
+.margin-sm-bottom{ margin-bottom: 30px;}
+.margin-xs-bottom{ margin-bottom: 15px;}
+
+.w-100{ width: 100%; }
+.w-50{ width: 50%; }
+.w-33{ width: 33%; }
+.no-wrap{ white-space: nowrap;}
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+form>label:nth-of-type(n+2){ padding-top: 1.2rem; }
+
+label>input[type='checkbox']{ margin-right: 0.5em;  }
+label>input[type='radio']{ margin-right: 0.5em; }
+label.checkbox{ padding:0.1em 0.25em; margin-right: 1.2rem; cursor: pointer; vertical-align: middle;}
+label>input:checked + *{ /*color: #007bff; */background: #ffc; }
+/* label.checked.active{ background: #ffc; border-radius: 4px; box-sizing: border-box; } */
+.checkbox-line{display: inline-block;}
+
+label.ui-off{ padding: 0; }
+label.ui-off input{ display: none; }
+
+@media screen and (max-width:768px){ 
+    .checkbox{ padding-left: 0.25em; width: 100%; } 
+    .checkbox-line .checkbox{ width: auto; }
+}
+
+input[type='number'] {-moz-appearance:textfield;}
+input[type='number']::-webkit-outer-spin-button, input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='date']{ max-width: 12em; position: relative; cursor: pointer;}
+input[type="date"]::-webkit-inner-spin-button{ -webkit-appearance: none;  content: "*";}
+input[type="date"]::-webkit-clear-button{ -webkit-appearance: none; content: "*";}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+ul.msg{ margin-top: 0;margin-bottom: 0; padding-left: 0; }
+ul.msg li{list-style: none;}
+
+.long-text{overflow-wrap: break-word;}
+pre{ 
+    white-space: pre-wrap;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    line-height: 1.5;
+    color: #212529;
+    overflow: initial;
+    
+}
+
+pre.contents{ border: none; background: none; padding: 0; }
+
+.nav-title{
+    border-bottom: 1px solid #ddd;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+}
+nav.nav-title{
+    border-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+}
+nav.nav-title .breadcrumb{ background-color: inherit; padding-left: 0rem; padding-bottom: 0; margin-bottom: 1rem; }
+nav.nav-title .breadcrumb-item a{ color: #999; }
+nav.nav-title .breadcrumb-item a:hover{ color: #007bff; }
+nav.nav-title .breadcrumb-item + .breadcrumb-item::before { content: "/" !important; color: #eee; }
+nav.nav-title .breadcrumb-item.active{ color: #000; }
+nav.nav-title .breadcrumb-item h1{
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+table.table tbody td.action{ text-align: right; font-size: 0.8em;}
+table.table tbody td.action .action-item{ white-space: nowrap; margin-left: 0.5em;}
+table.table tr.tr-extra{ border:none; }
+table.table tr.tr-extra td, table.table tr.tr-extra th{
+    border:none;
+}
+table.table tr.td-border td, table.table td.td-border{
+    border-top:1px solid #eee;
+}
+table tr.template{display: none;}
+
+.required:after{
+    content: "＊";
+    margin-left: 0.5em;
+    color:#f00;
+}
+
+.tb-row{ display: inline-table; width: 100%; }
+.tb-row-fit{ display: inline-table;}
+.tb-cell{ display: table-cell; vertical-align: middle; text-align: left; }
+.tb-cell-r{ display: table-cell; vertical-align: middle; text-align: right; }
+.tb-cell-c{ display: table-cell; vertical-align: middle; text-align: center; }

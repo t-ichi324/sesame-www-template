@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="select">
+        SELECT * FROM `app_data`
+        {{where}} {{group}} {{order}} {{limit}}
+    </sql>
+
+    <sql key="get" param="key">
+        SELECT * FROM `app_data`
+        WHERE
+            `key` = :key
+    </sql>
+
+    <sql key="update" param="data,attr,key">
+        UPDATE `app_data` SET 
+            `data` = :data
+            ,`attr` = :attr
+        WHERE
+            `key` = :key
+        {{where}}
+    </sql>
+
+    <sql key="insert" param="key,data,attr">
+        INSERT INTO `app_data`(
+            `key`
+            ,`data`
+            ,`attr`
+        )
+        VALUES(
+            :key
+            ,:data
+            ,:attr
+        )
+    </sql>
+
+    <sql key="save" param="key,data,attr,data,attr">
+        INSERT INTO `app_data`(
+            `key`
+            ,`data`
+            ,`attr`
+        )
+        VALUES(
+            :key
+            ,:data
+            ,:attr
+        )
+        ON DUPLICATE KEY UPDATE
+            `data` = VALUES(`data`)
+            ,`attr` = VALUES(`attr`)
+    </sql>
+
+</root>

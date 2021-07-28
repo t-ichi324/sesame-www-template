@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="select">
+        SELECT * FROM `user_actual`
+        {{where}} {{group}} {{order}} {{limit}}
+    </sql>
+
+    <sql key="get" param="id">
+        SELECT * FROM `user_actual`
+        WHERE
+            `id` = :id
+    </sql>
+
+    <sql key="update" param="email,name,kana,company,branch,post,addr1,addr2,tel,fax,zip_code,id">
+        UPDATE `user_actual` SET 
+            `email` = :email
+            ,`name` = :name
+            ,`kana` = :kana
+            ,`company` = :company
+            ,`branch` = :branch
+            ,`post` = :post
+            ,`addr1` = :addr1
+            ,`addr2` = :addr2
+            ,`tel` = :tel
+            ,`fax` = :fax
+            ,`zip_code` = :zip_code
+        WHERE
+            `id` = :id
+        {{where}}
+    </sql>
+
+    <sql key="insert" param="password,roles,term_start,term_end,token,attr,remarks,email,name,kana,company,branch,post,addr1,addr2,tel,fax,zip_code">
+        INSERT INTO `user_actual`(
+            `password`
+            ,`roles`
+            ,`term_start`
+            ,`term_end`
+            ,`token`
+            ,`attr`
+            ,`remarks`
+            ,`email`
+            ,`name`
+            ,`kana`
+            ,`company`
+            ,`branch`
+            ,`post`
+            ,`addr1`
+            ,`addr2`
+            ,`tel`
+            ,`fax`
+            ,`zip_code`
+        )
+        VALUES(
+            :password
+            ,:roles
+            ,:term_start
+            ,:term_end
+            ,:token
+            ,:attr
+            ,:remarks
+            ,:email
+            ,:name
+            ,:kana
+            ,:company
+            ,:branch
+            ,:post
+            ,:addr1
+            ,:addr2
+            ,:tel
+            ,:fax
+            ,:zip_code
+        )
+    </sql>
+
+    <sql key="save" param="password,roles,term_start,term_end,token,attr,remarks,email,name,kana,company,branch,post,addr1,addr2,tel,fax,zip_code,email,name,kana,company,branch,post,addr1,addr2,tel,fax,zip_code">
+        INSERT INTO `user_actual`(
+            `password`
+            ,`roles`
+            ,`term_start`
+            ,`term_end`
+            ,`token`
+            ,`attr`
+            ,`remarks`
+            ,`email`
+            ,`name`
+            ,`kana`
+            ,`company`
+            ,`branch`
+            ,`post`
+            ,`addr1`
+            ,`addr2`
+            ,`tel`
+            ,`fax`
+            ,`zip_code`
+        )
+        VALUES(
+            :password
+            ,:roles
+            ,:term_start
+            ,:term_end
+            ,:token
+            ,:attr
+            ,:remarks
+            ,:email
+            ,:name
+            ,:kana
+            ,:company
+            ,:branch
+            ,:post
+            ,:addr1
+            ,:addr2
+            ,:tel
+            ,:fax
+            ,:zip_code
+        )
+        ON DUPLICATE KEY UPDATE
+            `email` = VALUES(`email`)
+            ,`name` = VALUES(`name`)
+            ,`kana` = VALUES(`kana`)
+            ,`company` = VALUES(`company`)
+            ,`branch` = VALUES(`branch`)
+            ,`post` = VALUES(`post`)
+            ,`addr1` = VALUES(`addr1`)
+            ,`addr2` = VALUES(`addr2`)
+            ,`tel` = VALUES(`tel`)
+            ,`fax` = VALUES(`fax`)
+            ,`zip_code` = VALUES(`zip_code`)
+    </sql>
+
+</root>

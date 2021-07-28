@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="select">
+        SELECT * FROM `app_mail`
+        {{where}} {{group}} {{order}} {{limit}}
+    </sql>
+
+    <sql key="get" param="trigger">
+        SELECT * FROM `app_mail`
+        WHERE
+            `trigger` = :trigger
+    </sql>
+
+    <sql key="update" param="subject,sender_addr,sender_name,cc,bcc,body,trigger">
+        UPDATE `app_mail` SET 
+            `subject` = :subject
+            ,`sender_addr` = :sender_addr
+            ,`sender_name` = :sender_name
+            ,`cc` = :cc
+            ,`bcc` = :bcc
+            ,`body` = :body
+        WHERE
+            `trigger` = :trigger
+        {{where}}
+    </sql>
+
+    <sql key="insert" param="trigger,subject,sender_addr,sender_name,cc,bcc,body">
+        INSERT INTO `app_mail`(
+            `trigger`
+            ,`subject`
+            ,`sender_addr`
+            ,`sender_name`
+            ,`cc`
+            ,`bcc`
+            ,`body`
+        )
+        VALUES(
+            :trigger
+            ,:subject
+            ,:sender_addr
+            ,:sender_name
+            ,:cc
+            ,:bcc
+            ,:body
+        )
+    </sql>
+
+    <sql key="save" param="trigger,subject,sender_addr,sender_name,cc,bcc,body,subject,sender_addr,sender_name,cc,bcc,body">
+        INSERT INTO `app_mail`(
+            `trigger`
+            ,`subject`
+            ,`sender_addr`
+            ,`sender_name`
+            ,`cc`
+            ,`bcc`
+            ,`body`
+        )
+        VALUES(
+            :trigger
+            ,:subject
+            ,:sender_addr
+            ,:sender_name
+            ,:cc
+            ,:bcc
+            ,:body
+        )
+        ON DUPLICATE KEY UPDATE
+            `subject` = VALUES(`subject`)
+            ,`sender_addr` = VALUES(`sender_addr`)
+            ,`sender_name` = VALUES(`sender_name`)
+            ,`cc` = VALUES(`cc`)
+            ,`bcc` = VALUES(`bcc`)
+            ,`body` = VALUES(`body`)
+    </sql>
+
+</root>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="select">
+        SELECT * FROM `app_kv`
+        {{where}} {{group}} {{order}} {{limit}}
+    </sql>
+
+    <sql key="get" param="cl,key">
+        SELECT * FROM `app_kv`
+        WHERE
+            `cl` = :cl
+             AND `key` = :key
+    </sql>
+
+    <sql key="update" param="val,sort,attr,cl,key">
+        UPDATE `app_kv` SET 
+            `val` = :val
+            ,`sort` = :sort
+            ,`attr` = :attr
+        WHERE
+            `cl` = :cl
+             AND `key` = :key
+        {{where}}
+    </sql>
+
+    <sql key="insert" param="cl,key,val,sort,attr">
+        INSERT INTO `app_kv`(
+            `cl`
+            ,`key`
+            ,`val`
+            ,`sort`
+            ,`attr`
+        )
+        VALUES(
+            :cl
+            ,:key
+            ,:val
+            ,:sort
+            ,:attr
+        )
+    </sql>
+
+    <sql key="save" param="cl,key,val,sort,attr,val,sort,attr">
+        INSERT INTO `app_kv`(
+            `cl`
+            ,`key`
+            ,`val`
+            ,`sort`
+            ,`attr`
+        )
+        VALUES(
+            :cl
+            ,:key
+            ,:val
+            ,:sort
+            ,:attr
+        )
+        ON DUPLICATE KEY UPDATE
+            `val` = VALUES(`val`)
+            ,`sort` = VALUES(`sort`)
+            ,`attr` = VALUES(`attr`)
+    </sql>
+
+</root>

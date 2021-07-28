@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="select">
+        SELECT * FROM `user_log`
+        {{where}} {{group}} {{order}} {{limit}}
+    </sql>
+
+    <sql key="update" param="">
+        UPDATE `user_log` SET 
+        {{where}}
+    </sql>
+
+    <sql key="insert" param="user_id,cl,note,url,session_id,ip,user_agent">
+        INSERT INTO `user_log`(
+            `user_id`
+            ,`cl`
+            ,`note`
+            ,`url`
+            ,`session_id`
+            ,`ip`
+            ,`user_agent`
+        )
+        VALUES(
+            :user_id
+            ,:cl
+            ,:note
+            ,:url
+            ,:session_id
+            ,:ip
+            ,:user_agent
+        )
+    </sql>
+
+    <sql key="save" param="user_id,cl,note,url,session_id,ip,user_agent">
+        INSERT INTO `user_log`(
+            `user_id`
+            ,`cl`
+            ,`note`
+            ,`url`
+            ,`session_id`
+            ,`ip`
+            ,`user_agent`
+        )
+        VALUES(
+            :user_id
+            ,:cl
+            ,:note
+            ,:url
+            ,:session_id
+            ,:ip
+            ,:user_agent
+        )
+        ON DUPLICATE KEY UPDATE
+    </sql>
+
+</root>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <sql key="select">
+        SELECT * FROM `contact`
+        {{where}} {{group}} {{order}} {{limit}}
+    </sql>
+
+    <sql key="get" param="id">
+        SELECT * FROM `contact`
+        WHERE
+            `id` = :id
+    </sql>
+
+    <sql key="update" param="remarks,id">
+        UPDATE `contact` SET 
+            `remarks` = :remarks
+        WHERE
+            `id` = :id
+        {{where}}
+    </sql>
+
+    <sql key="insert" param="cl,name,email,subject,body,ip,user_agent,remarks">
+        INSERT INTO `contact`(
+            `cl`
+            ,`name`
+            ,`email`
+            ,`subject`
+            ,`body`
+            ,`ip`
+            ,`user_agent`
+            ,`remarks`
+        )
+        VALUES(
+            :cl
+            ,:name
+            ,:email
+            ,:subject
+            ,:body
+            ,:ip
+            ,:user_agent
+            ,:remarks
+        )
+    </sql>
+
+    <sql key="save" param="cl,name,email,subject,body,ip,user_agent,remarks,remarks">
+        INSERT INTO `contact`(
+            `cl`
+            ,`name`
+            ,`email`
+            ,`subject`
+            ,`body`
+            ,`ip`
+            ,`user_agent`
+            ,`remarks`
+        )
+        VALUES(
+            :cl
+            ,:name
+            ,:email
+            ,:subject
+            ,:body
+            ,:ip
+            ,:user_agent
+            ,:remarks
+        )
+        ON DUPLICATE KEY UPDATE
+            `remarks` = VALUES(`remarks`)
+    </sql>
+
+</root>
