@@ -10,6 +10,7 @@ abstract class IUserEditForm extends \IForm{
         return $this->__load();
     }
     protected function __load(... $fields){
+        if(empty($this->id)){ throw new \NotFoundException();}
         if(!UserUtil::isExists($this->id)){ throw new \NotFoundException();}
         $q = UserUtil::query($this->id);
         if(empty($fields)){

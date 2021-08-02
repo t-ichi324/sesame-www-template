@@ -56,22 +56,22 @@
                 {{@endif}}
             </ul>
             <div class="tab-content">
-                <div class="tab-pane active" id="flds">{{@require-vp tab/flds}}</div>
-                <div class="tab-pane" id="dtl">{{@require-vp tab/dtl}}</div>
+                <div class="tab-pane active" id="flds">{{:require tab/flds}}</div>
+                <div class="tab-pane" id="dtl">{{:require tab/dtl}}</div>
                 {{@if $isView}}
-                <div class="tab-pane" id="vsql">{{@require-vp tab/vsql}}</div>
+                <div class="tab-pane" id="vsql">{{:require tab/vsql}}</div>
                 {{@endif}}
             </div>
 
             <div class="tb-row margin-md-top">
                 <div class="tb-cell">
-                    <a href="{{@url ../gen-entity}}" class="btn btn-info">Entity.php</a> 
-                    <a href="{{@url ../gen-create}}" class="btn btn-info">Create.sql</a> 
-                    <a href="{{@url ../gen-xmlsql}}" class="btn btn-info">Sql.xml</a>
+                    <a href="{{:url ../gen-entity}}" class="btn btn-info">Entity.php</a> 
+                    <a href="{{:url ../gen-create}}" class="btn btn-info">Create.sql</a> 
+                    <a href="{{:url ../gen-xmlsql}}" class="btn btn-info">Sql.xml</a>
                 </div>
                 <div class="tb-cell-r">
-                    <a href="{{@url ../export}}" class="btn btn-default">Export</a> 
-                    <a href="{{@url ../import}}" class="btn btn-default">Import</a> 
+                    <a href="{{:url ../export}}" class="btn btn-default">Export</a> 
+                    <a href="{{:url ../import}}" class="btn btn-default">Import</a> 
                     <button class="btn btn-primary" type="submit">{{__("save")}}</button>
                 </div>
             </div>
@@ -82,7 +82,7 @@
 <table id="fld-tmp" style="display: none">
     <tbody>
         <?php Model::set("flds", array(new \DB\Libs\Entity\Fld())); ?>
-        {{@require-vp tab/flds-tr}}
+        {{:require tab/flds-tr}}
     </tbody>
 </table>
 

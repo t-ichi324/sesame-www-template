@@ -8,11 +8,11 @@
         </ul>
     </div>
     <div class="tb-cell-r">
-        <a href="{{@url /add}}" class="btn btn-primary ajax-modal">ADD</a>
+        <a href="{{:url /add}}" class="btn btn-primary ajax-modal">ADD</a>
     </div>
 </div>
 
-<div id="ajax-list">{{@require-vp -list}}</div>
+<div id="ajax-list">{{:require -list}}</div>
 
 {{@sec js}}
 <script>

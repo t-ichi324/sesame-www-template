@@ -47,6 +47,12 @@ class MailSender{
         return self::send("forgot", $to, $replaces, $no_send);
     }
     /**
+     * $replaces $mix
+     */
+    public static function twoFactorAuth($to, array $replaces, $no_send = false){
+        return self::send("two-factor", $to, $replaces, $no_send);
+    }
+    /**
      * $replaces \Form\ContactForm
      */
     public static function contact($to, array $replaces, $no_send = false){

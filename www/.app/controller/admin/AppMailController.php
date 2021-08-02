@@ -1,7 +1,5 @@
 <?php
-//@ Assign ===============================
-include __DIR__."/-meta.php";
-
+//@ META ===================================
 Meta::vprefix("+/app-mail");
 Meta::breadcrumb( __("admin.menu-appmail") , "+/app-mail");
 //@=========================================

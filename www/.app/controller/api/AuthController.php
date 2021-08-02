@@ -1,4 +1,6 @@
 <?php
+//@ META ===================================
+//@=========================================
 Log::$IGNORLE_ACCESS = true;
 
 class AuthController extends IController{

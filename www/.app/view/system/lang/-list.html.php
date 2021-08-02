@@ -1,7 +1,7 @@
 {{@layout layout/base-ajax}}
 
 <?php LayoutRender::listAddon(Meta::get_url("list"), "#ajax-list"); ?>
-<form action="{{@url list}}" method="post" class="ajax-form search" data-ajax-target="#ajax-list" id="search">
+<form action="{{:url list}}" method="post" class="ajax-form search" data-ajax-target="#ajax-list" id="search">
     <div class="row">
         <div class="col-md-12">
             <div class="input-group">
@@ -33,7 +33,7 @@
         </div>
     </div>
 </form>
-<form action="{{@url edit}}" method="post" id="editor" style="display: none">
+<form action="{{:url edit}}" method="post" id="editor" style="display: none">
     <?php FormEcho::tag_hidden("lang"); ?>
     <?php FormEcho::tag_hidden("cl"); ?>
     <input type="hidden" name="key" id="editor-key" value="">
@@ -43,7 +43,7 @@
 <?php $form = FormEcho::getFormObject(); ?>
 <?php if(StringUtil::isNotEmpty($form->cl)){ ?>
 <div class="tb-row">
-    <div class="tb-cell-r"><small>{{@list-detail __("msg-list-detail")}}</small></div>
+    <div class="tb-cell-r"><small>{{*list-detail __("msg-list-detail")}}</small></div>
 </div>
 <table class="table">
     <thead>
@@ -59,11 +59,11 @@
             <td><input type="text" class="form-control" id="add-val" value=""/></td>
             <td class="action"><button class="btn btn-primary" type="button" id="add">Add</button></td>
         </tr>
-        {{@each-list $k => $v}}
+        {{*each-list $k => $v}}
         <tr data-key="{{$k}}">
             <td><input type="text" class="form-control edit e-val"  readonly value="{{$k}}"/> </td>
             <td><input type="text" class="form-control edit e-attr" value="{{$v}}"/> </td>
-            <td class="action"><button class="btn btn-default del" type="button" data-url="{{@url /del?cl=[$k]&key=[$k]}}">Del</button></td>
+            <td class="action"><button class="btn btn-default del" type="button" data-url="{{:url /del?cl=[$k]&key=[$k]}}">Del</button></td>
         </tr>
         {{@endeach}}
     </tbody>

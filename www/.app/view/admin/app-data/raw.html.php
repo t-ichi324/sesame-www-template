@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="{{col_md_class()}}">
-        <form method="post">
+        <form method="post" action="{{@url}}">
             <p class="sec-title">{{@title}}</p>
             <p>{{__("admin.appdata-raw-msg")}}</p>
             <?php FormEcho::tag_textarea("data", array("class"=>"form-control p-text", "style"=>"min-height: 60vh;")); ?>

@@ -79,6 +79,15 @@ trait __User{
     **/
     public $is_single;
     /**
+     * - <b>logical : </b>2段階認証
+     * - <b>physical : </b>is_tfa
+     * - <b>type : </b>INT
+     * - <b>size : </b>1
+     * - <b>def : </b>0
+     * - <b>notnull</b>
+    **/
+    public $is_tfa;
+    /**
      * - <b>logical : </b>セッションID
      * - <b>physical : </b>session_id
      * - <b>type : </b>VARCHAR

@@ -1,7 +1,7 @@
 {{@layout layout/base-ajax}}
 
 <?php LayoutRender::listAddon(Meta::get_url("list"), "#ajax-list"); ?>
-<form action="{{@url list}}" method="post" class="ajax-form" data-ajax-target="#ajax-list">
+<form action="{{:url list}}" method="post" class="ajax-form" data-ajax-target="#ajax-list">
     <div class="row">
         <div class="col-md-7">
             <div class="input-group">
@@ -32,18 +32,18 @@
     </div>
 </form>
 
-{{@if-has-list}}
+{{*if-has-list}}
 <div class="tb-row">
     <div class="tb-cell">
-        <a class="btn btn-default" href="{{@url /download.csv[Model::get("dl-query")]}}">Download</a>
+        <a class="btn btn-default" href="{{:url /download.csv[Model::get("dl-query")]}}">Download</a>
         {{@if !empty(Form::get("user_id")) }}
         <a class="btn btn-default ajax-modal" data-width="800px" href="{{/admin/user/detail/?id=[Form::get("user_id")]}}">{{__("admin.to-user-prof")}}</a>
         {{@endif}}
     </div>
     <div class="tb-cell-r">
         <small>
-            <small>{{@list-detail __("msg-list-detail")}}</small><br>
-            <form action="{{@url /del}}" method="post">
+            <small>{{*list-detail __("msg-list-detail")}}</small><br>
+            <form action="{{:url /del}}" method="post">
                 <?php FormEcho::tag_hidden("user_id","cl","ed","sd") ?>
                 <?php
                     if(Form::isAllEmpty("user_id","cl","ed", "sd")){
@@ -59,10 +59,10 @@
 </div>
 <table class="log-table">
     <tbody>
-        {{@each-list $e}}
+        {{*each-list $e}}
         <tr>
             <td class="at">{{$e->created_at}}</td>
-            <td><a href="{{@url ?user_id=[$e->user_id]}}">{{$e->name}}</a></td>
+            <td><a href="{{:url ?user_id=[$e->user_id]}}">{{$e->name}}</a></td>
             <td>{{$e->cl}}</td>
             <td class="url"><a target="_blank" href="{{$e->url}}">{{$e->url}}</a></td>
             <td title="{{$e->user_agent}}">{{$e->getBrowser()}}</td>

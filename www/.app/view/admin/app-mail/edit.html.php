@@ -1,6 +1,6 @@
 {{@layout layout/base}}
 
-<form method="post" >
+<form method="post" action="{{@url}}">
     <table class="table">
         <tbody>
         <label>{{__("email.from-addr")}}</label> <span style="color:#66f;margin-left: 1em;">{{__("admin.appmail-note-*", Request::getHost())}}</span>

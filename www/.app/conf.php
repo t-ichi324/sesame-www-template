@@ -57,6 +57,7 @@ class User extends IAuthUser {
     public $term_start;
     public $term_end;
     public $is_ban;
+    public $is_tfa;
     
     /* Login / Remember時に１度だけ呼ばれる。 */
     public static function GET_AUTH_KEY(array $cert) {
@@ -85,10 +86,16 @@ class User extends IAuthUser {
         return $x->file("sys/auth")->sql("data", $param)->selectFirst();
     }
     
+    /** ロールの取得 */
     public function getRoles(){
         return explode(',', $this->roles);
     }
     
+    /** 2段階認証ユーザ */
+    public function is2fa() {
+        return Flags::isON($this->is_tfa);
+    }
+
     protected function after_fetch() {
         //term
         $termerr = false;

@@ -1,11 +1,9 @@
 <?php
-//@ Assign =================================
-// + Setting
+//@ META ===================================
 Meta::vprefix("index");
 
-//@=========================================
-
 Meta::MAP_LOAD();
+//@=========================================
 
 class IndexController extends IController{
     public function index(){

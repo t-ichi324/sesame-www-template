@@ -1,7 +1,7 @@
 {{@layout layout/base-ajax}}
 <?php LayoutRender::listAddon(Meta::get_url("list"), "#ajax-list"); ?>
 
-<form action="{{@url list}}" method="post" class="ajax-form search" data-ajax-target="#ajax-list" id="search">
+<form action="{{:url list}}" method="post" class="ajax-form search" data-ajax-target="#ajax-list" id="search">
     <div class="row">
         <div class="col-md-12">
             <div class="input-group">
@@ -11,11 +11,11 @@
 </form>
 
 <div class="tb-row">
-    <div class="tb-cell-r"><small>{{@list-detail __("msg-list-detail")}}</small></div>
+    <div class="tb-cell-r"><small>{{*list-detail __("msg-list-detail")}}</small></div>
 </div>
 <table class="table">
     <tbody>
-        {{@each-list $e}}
+        {{*each-list $e}}
         <?php
             $pub = Flags::isON($e->is_publish) ? __("public")  : __("private") ;
             $edit = Meta::get_action("edit")."?id=".$e->id; 

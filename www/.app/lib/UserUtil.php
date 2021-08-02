@@ -110,6 +110,10 @@ class UserUtil{
         $v = \Flags::isON($flag) ? 1 : 0;
         self::update_any($id, array("is_single"=> $v));
     }
+    public static function update_auth_tfa($id, $flag){
+        $v = \Flags::isON($flag) ? 1 : 0;
+        self::update_any($id, array("is_tfa"=> $v));
+    }
     public static function update_auth_session_id($id, $session_id){
         self::update_any($id, array("session_id"=>$session_id));
     }

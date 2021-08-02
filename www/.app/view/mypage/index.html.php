@@ -36,14 +36,14 @@
 <div class="row">
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header"><a href="{{@url /edit}}">{{__("prof.menu-edit")}}</a></div>
+            <div class="card-header"><a href="{{:url /edit}}">{{__("prof.menu-edit")}}</a></div>
             <div class="card-body">{{__("prof.desc-edit")}}</div>
         </div>
     </div>
     <div class="col-md-4">
         
         <div class="card">
-            <div class="card-header"><a href="{{@url /pw}}">{{__("prof.menu-pw")}}</a></div>
+            <div class="card-header"><a href="{{:url /pw}}">{{__("prof.menu-pw")}}</a></div>
             <div class="card-body">{{__("prof.desc-pw")}}</div>
         </div>
     </div>

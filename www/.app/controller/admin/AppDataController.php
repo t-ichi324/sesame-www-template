@@ -1,10 +1,6 @@
 <?php
-//@ Assign ===============================
-include __DIR__."/-meta.php";
-// + Setting
+//@ META ===================================
 Meta::vprefix("admin/app-data");
-
-// + Hierarcy
 Meta::breadcrumb( __("admin.menu-appdata") , "+/app-data");
 //@=========================================
 

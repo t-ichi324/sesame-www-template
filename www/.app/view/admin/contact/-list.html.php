@@ -2,7 +2,7 @@
 
 <?php LayoutRender::listAddon(Meta::get_url("list"), "#ajax-list"); ?>
 
-<form action="{{@url list}}" method="post" class="ajax-form" data-ajax-target="#ajax-list">
+<form action="{{:url list}}" method="post" class="ajax-form" data-ajax-target="#ajax-list">
     <div class="row">
         <div class="col-md-12">
             <div class="input-group">
@@ -21,11 +21,11 @@
     </div>
 </form>
 
-{{@if-has-list}}
+{{*if-has-list}}
 <div class="tb-row margin-sm-top">
     <div class="tb-cell-r">
-        <small>{{@list-detail __("msg-list-detail")}}</small><br>
-        <small><a href="{{@url /del-checked}}" class="ajax-modal">{{__("admin.delete-readed")}}</a></small>
+        <small>{{*list-detail __("msg-list-detail")}}</small><br>
+        <small><a href="{{:url /del-checked}}" class="ajax-modal">{{__("admin.delete-readed")}}</a></small>
     </div>
 </div>
 <table class="table">
@@ -40,22 +40,22 @@
         </tr>
     </thead>
     <tbody>
-        {{@each-list $e}}
+        {{*each-list $e}}
         {{@code $id = $e->id; $checked = $e->is_checked;}}
         <tr data-id="{{$id}}">
             <td>
                 {{@if $checked == "1" }}
-                <a class="btn btn-default btn-sm btn-request-check" href="{{@url check/?flag=0&id=[$id]}}">{{__("readed")}}</a>
+                <a class="btn btn-default btn-sm btn-request-check" href="{{:url check/?flag=0&id=[$id]}}">{{__("readed")}}</a>
                 {{@else}}
-                <a class="btn btn-warning btn-sm btn-request-check" href="{{@url check/?flag=1&id=[$id]}}">{{__("unreaded")}}</a>
+                <a class="btn btn-warning btn-sm btn-request-check" href="{{:url check/?flag=1&id=[$id]}}">{{__("unreaded")}}</a>
                 {{@endif}}
             </td>
-            <td><a href="{{@url detail/?id=[$id]}}" data-width="800px" data-title="{{__("contact").__("detail")}}" class="ajax-modal">{{$e->cl_name}}</a></td>
-            <td><a href="{{@url detail/?id=[$id]}}" data-width="800px" data-title="{{__("contact").__("detail")}}" class="ajax-modal">{{$e->name}}</a></td>
-            <td><a href="{{@url detail/?id=[$id]}}" data-width="800px" data-title="{{__("contact").__("detail")}}" class="ajax-modal">{{$e->email}}</a></td>                  
+            <td><a href="{{:url detail/?id=[$id]}}" data-width="800px" data-title="{{__("contact").__("detail")}}" class="ajax-modal">{{$e->cl_name}}</a></td>
+            <td><a href="{{:url detail/?id=[$id]}}" data-width="800px" data-title="{{__("contact").__("detail")}}" class="ajax-modal">{{$e->name}}</a></td>
+            <td><a href="{{:url detail/?id=[$id]}}" data-width="800px" data-title="{{__("contact").__("detail")}}" class="ajax-modal">{{$e->email}}</a></td>                  
             <td>{{$e->created_at}}</td>
             <td class="action">
-                <a class="ajax-modal action-item" href="{{@url del/?id=[$id]}}">{{__("delete")}}</a>
+                <a class="ajax-modal action-item" href="{{:url del/?id=[$id]}}">{{__("delete")}}</a>
             </td>
         </tr>
         {{@endeach}}

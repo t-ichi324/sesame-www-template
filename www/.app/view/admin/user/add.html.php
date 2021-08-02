@@ -9,7 +9,7 @@
 </style>
 {{@endsec}}
 
-<form method="post" id="f-user" <?php if(Request::isAjax()){?>class="ajax-modal-form" data-ajax-callback="refreshList();" <?php } ?>>
+<form method="post" action="{{@url}}" id="f-user" <?php if(Request::isAjax()){?>class="ajax-modal-form" data-ajax-callback="refreshList();" <?php } ?>>
     <div class="row">
         <div class="col-md-8 mx-auto">
             <label class="required">{{__("prof.role")}}</label>

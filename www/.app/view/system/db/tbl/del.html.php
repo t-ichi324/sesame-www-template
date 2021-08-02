@@ -1,6 +1,6 @@
 {{@layout layout/base, layout/base-ajax}}
 
-<form method="post" action="{{@url}}">
+<form method="post" action="{{@url}}" >
     <?php FormEcho::tag_hidden("sch_id", "tbl_id", "phy_name"); ?>
     <p>「{{*phy_name}}」を削除してもよろしいですか？</p>
     <div class="tb-row">

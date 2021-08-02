@@ -1,18 +1,13 @@
 <?php
-//@ Assign =================================
+//@ META ===================================
 Meta::breadcrumb( __("contact"));
-
-// + Setting
 Meta::vprefix("contact");
 
-// + Hierarcy
 Meta::MAP_LOAD();
-
 Meta::csrf(true);
 //@=========================================
 class ContactController extends IController{
     public function index(){
-        
         
         $f = new \Form\ContactForm();
         $f->agreed = Flags::OFF;

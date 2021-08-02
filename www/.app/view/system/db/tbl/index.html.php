@@ -24,8 +24,8 @@
     <div class="tb-cell">
     </div>
     <div class="tb-cell-r">
-        <a class="btn btn-primary" href="{{@url add/[$p]}}">{{__("newadd")}}</a>
-        <a class="btn btn-primary" href="{{@url imjson/[$p]}}">fromJSON</a>
+        <a class="btn btn-primary" href="{{:url add/[$p]}}">{{__("newadd")}}</a>
+        <a class="btn btn-primary" href="{{:url imjson/[$p]}}">fromJSON</a>
     </div>
 </div>
 <table class="table">
@@ -39,12 +39,12 @@
         <?php foreach($tbls as $r){ 
             $p = $r["p"]; ?>
         <tr>
-            <td><a href="{{@url edit/[$p]}}">{{$r["name"]}}</a></td>
+            <td><a href="{{:url edit/[$p]}}">{{$r["name"]}}</a></td>
             <td>{{$r["log"]}}</td>
             <td>{{$r["comment"]}}</td>
             <td>
-                <a href="{{@url del/[$p]}}" class="ajax-modal" data-title="{{__("delete")}}"><i class="fa fa-trash-o"></i></a>
-                <a href="{{@url exjson/[$p]}}" style="margin-left: 1rem;">JSON</a>
+                <a href="{{:url del/[$p]}}" class="ajax-modal" data-title="{{__("delete")}}"><i class="fa fa-trash-o"></i></a>
+                <a href="{{:url exjson/[$p]}}" style="margin-left: 1rem;">JSON</a>
             </td>
         </tr>
         <?php } ?>
@@ -60,12 +60,12 @@
         <?php foreach($views as $r){ 
             $p = $r["p"]; ?>
         <tr>
-            <td><a href="{{@url edit/[$p]}}">{{$r["name"]}}</a></td>
+            <td><a href="{{:url edit/[$p]}}">{{$r["name"]}}</a></td>
             <td>{{$r["log"]}}</td>
             <td>{{$r["comment"]}}</td>
             <td>
-                <a href="{{@url del/[$p]}}" class="ajax-modal" data-title="{{__("delete")}}"><i class="fa fa-trash-o"></i></a>
-                <a href="{{@url exjson/[$p]}}" style="margin-left: 1rem;">JSON</a>
+                <a href="{{:url del/[$p]}}" class="ajax-modal" data-title="{{__("delete")}}"><i class="fa fa-trash-o"></i></a>
+                <a href="{{:url exjson/[$p]}}" style="margin-left: 1rem;">JSON</a>
             </td>
         </tr>
         <?php } ?>
@@ -75,9 +75,9 @@
 
 <div class="tb-row margin-md-top">
     <div class="tb-cell">
-        <a href="{{@url gen-entity}}" class="btn btn-info">Entity.php.zip</a> 
-        <a href="{{@url gen-create}}" class="btn btn-info">CreateSql.zip</a> 
-        <a href="{{@url gen-xmlsql}}" class="btn btn-info">Sql.xml.zip</a>
+        <a href="{{:url gen-entity}}" class="btn btn-info">Entity.php.zip</a> 
+        <a href="{{:url gen-create}}" class="btn btn-info">CreateSql.zip</a> 
+        <a href="{{:url gen-xmlsql}}" class="btn btn-info">Sql.xml.zip</a>
     </div>
     <div class="tb-cell-r">
     </div>

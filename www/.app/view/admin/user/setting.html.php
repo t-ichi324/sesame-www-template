@@ -8,16 +8,19 @@
     <hr>
     -->
     
-    <p>{{__("status")}}</p>
+    <p>{{__("setting")}}</p>
     <div class="row">
+        <div class="col-md-6">
+            <label class="checkbox"><input type="checkbox" <?php FormEcho::attr_nameValChecked("is_tfa") ?>><c>{{__("admin.is_tfa")}}</c></label>
+        </div>
         <div class="col-md-6">
             <label class="checkbox"><input type="checkbox" <?php FormEcho::attr_nameValChecked("is_single") ?>><c>{{__("admin.is_single")}}</c></label>
         </div>
+        {{@if Auth::getVal("id") != Form::getVal("id")}}
         <div class="col-md-6">
-            {{@if Auth::getVal("id") != Form::getVal("id")}}
             <label class="checkbox"><input type="checkbox" <?php FormEcho::attr_nameValChecked("is_ban") ?>><c>{{__("admin.is_ban")}}</c></label>
-            {{@endif}}
         </div>
+        {{@endif}}
     </div>
     
     <hr>

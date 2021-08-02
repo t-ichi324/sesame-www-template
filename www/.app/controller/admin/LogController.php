@@ -1,7 +1,5 @@
 <?php
-//@ Assign =================================
-include __DIR__."/-meta.php";
-
+//@ META ==================================
 Meta::action("+/log");
 Meta::vprefix("+/log");
 Meta::breadcrumb( __("admin.menu-userlog") , "+/log");
@@ -98,7 +96,7 @@ class ListItem extends \Entity\UserLog{
     public $cl_name;
     
     public function getBrowser(){
-        echo Util::getBrowserName($this->user_agent, true);
+        echo UserAgentUtil::getBrowserName($this->user_agent);
     }
 }
 

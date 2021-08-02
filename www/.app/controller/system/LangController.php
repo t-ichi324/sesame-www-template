@@ -1,6 +1,5 @@
 <?php
-//@ Assign =================================
-include __DIR__."/-meta.php";
+//@ META ===================================
 
 Meta::vprefix("+/lang");
 Meta::breadcrumb( __("system.menu-lang") , "+/lang");

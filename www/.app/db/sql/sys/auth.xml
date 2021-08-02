@@ -8,7 +8,7 @@
     </sql>
 
     <sql key="data" param="id,session_id">
-        SELECT id, email, name, company, roles, is_ban
+        SELECT id, email, name, company, roles, is_ban, is_tfa
             ,term_start, term_end
             /*
             ,CASE WHEN (term_start IS NULL OR term_end &lt;= DATE(now())) THEN 0 ELSE 1 END AS err_term_start

@@ -1,6 +1,5 @@
 <?php
-//@ Assign =================================
-include __DIR__."/-meta.php";
+//@ META ===================================
 
 Meta::vprefix("+/dump");
 Meta::breadcrumb( __("system.menu-dump") , "+/dump");

@@ -1,6 +1,6 @@
 {{@layout layout/base, layout/base-ajax}}
 
-<p>登録情報</p>
+<p>{{__("detail")}}</p>
 {{@require layout/asset/user-prof}}
 
 <hr class="margin-sm">

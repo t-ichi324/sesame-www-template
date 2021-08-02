@@ -1,9 +1,7 @@
 <?php
-//@ Assign =================================
-// + Setting
+//@ META ===================================
 Meta::vprefix("auth");
-
-// + Hierarcy
+Meta::csrf(true);
 //@=========================================
 
 class AuthController extends IController{
@@ -35,14 +33,21 @@ class AuthController extends IController{
         return $this->indexResult();
     }
     
-    public function _post_index(){        
-        
+    public function _post_index(){
         $f = new Form\AuthForm();
         $user = new User();
         
         $params = ["loginId"=>$f->loginId, "password"=>$f->password];
         
         if($user->login($params, Flags::isON($f->remember))){
+            if($user->is2fa()){
+                $expired_min = 30;
+                $key = Auth::get2fa_key();
+                $token = Auth::get2fa_token($params, 5, $expired_min);
+                MailSender::twoFactorAuth($user->email, ["token"=>$token, "expired"=>$expired_min]);
+                return Response::redirect("/auth/two-factor?key=".$key);
+            }
+            
             Message::addSuccess( __("auth.success-msg") );
             Message::toRedirect();
             $to = base64_decode($f->r, true);
@@ -91,6 +96,36 @@ class AuthController extends IController{
             Message::addError( __("auth.forgot-error-msg", $f->email) );
             return "forgot";
         }
+    }
+    
+    public function twoFactor(){
+        $f = new \Form\AuthTwoFactorForm();
+        if(!Auth::valid2fa_key($f->key)){
+            return Response::notFound();
+        }
+        
+        return "two-factor";
+    }
+    public function _post_twoFactor(){
+        $f = new \Form\AuthTwoFactorForm();
+        if(!Auth::valid2fa_key($f->key)){
+            return Response::notFound();
+        }
+        
+        $user = new User();
+        if($user->login_2fa($f->key, $f->token)){
+            Message::addSuccess( __("auth.success-msg") );
+            Message::toRedirect();
+            $to = base64_decode($f->r, true);
+            if(empty($to)){
+                return Response::redirect("home");
+            }else{
+                return Response::redirect($to);
+            }
+        }
+        
+        Message::addError( __("auth.2fa-err") );
+        return "two-factor";
     }
 }
 ?>

@@ -31,7 +31,7 @@
 </style>
 {{@endsec}}
 
-<div id="ajax-list">{{@require-vp -list}}</div>
+<div id="ajax-list">{{:require -list}}</div>
 
 {{@sec js}}
 <script>

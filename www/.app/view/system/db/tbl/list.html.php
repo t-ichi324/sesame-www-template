@@ -23,7 +23,7 @@
     <div class="tb-cell">
     </div>
     <div class="tb-cell-r">
-        <a class="" href="{{@url add/[$p]}}">(+)</a>
+        <a class="" href="{{:url add/[$p]}}">(+)</a>
     </div>
 </div>
 <?php if(!empty($tbls)){ ?>
@@ -37,7 +37,7 @@
         <?php foreach($tbls as $r){ 
             $p = $r["p"]; ?>
         <tr>
-            <td><a href="{{@url edit/[$p]}}">{{$r["name"]}}</a></td>
+            <td><a href="{{:url edit/[$p]}}">{{$r["name"]}}</a></td>
         </tr>
         <?php } ?>
     </tbody>
@@ -52,7 +52,7 @@
         <?php foreach($views as $r){ 
             $p = $r["p"]; ?>
         <tr>
-            <td><a href="{{@url edit/[$p]}}">{{$r["name"]}}</a></td>
+            <td><a href="{{:url edit/[$p]}}">{{$r["name"]}}</a></td>
         </tr>
         <?php } ?>
     </tbody>

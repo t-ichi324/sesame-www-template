@@ -1,6 +1,4 @@
 <?php
-include __DIR__."/../-meta.php";
-
 Meta::vprefix("+/db");
 
 Meta::action("+/db");

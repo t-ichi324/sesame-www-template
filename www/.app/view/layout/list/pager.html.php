@@ -1,5 +1,5 @@
 <!--minify-->
-{{@if-has-list}}
+{{*if-has-list}}
 <?php
     $f = Form::getFormObject();
     $offset = 10;

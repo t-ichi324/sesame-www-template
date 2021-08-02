@@ -1,5 +1,5 @@
 {{@layout layout/base-ajax}}
-<form method="post" action="{{@url /flds-copy}}" class="ajax-form" id="copy-form">
+<form method="post" action="{{:url /flds-copy}}" class="ajax-form" id="copy-form">
     <?php FormEcho::tag_hidden("sch_id"); ?>
     <label>Copy</label>
     <select class="form-control" name='tbl_id'>

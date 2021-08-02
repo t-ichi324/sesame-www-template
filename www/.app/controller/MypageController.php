@@ -1,9 +1,6 @@
 <?php
-//@ Assign =================================
-// + Setting
+//@ META ===================================
 Meta::vprefix("mypage");
-
-// + Hierarcy
 Meta::breadcrumb( __("mypage") , "mypage");
 //@=========================================
 

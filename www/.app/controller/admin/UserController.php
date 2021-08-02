@@ -1,10 +1,6 @@
 <?php
-//@ Assign ===============================
-include __DIR__."/-meta.php";
-// + Setting
+//@ META ==================================
 Meta::vprefix("+/user");
-
-// + Hierarcy
 Meta::breadcrumb( __("admin.menu-user") , "+/user");
 //@=========================================
 
@@ -51,8 +47,8 @@ class UserController extends IAuthController{
             $regForm->sender_name = $email->sender_name;
             $regForm->subject = $email->subject;
             $regForm->body = $email->body;
-            $regForm->to = $f->email;
         }
+        $regForm->to = $f->email;
         $regForm->name = $f->name;
         $regForm->password = $f->pw;
         $regForm->_src = $regForm->toBase64();
@@ -260,6 +256,7 @@ class ListItem extends IEntity{
     
     public function getSettingName(){
         $txt = "";
+        $txt .= Flags::isON($this->is_tfa) ? "2" : "-" ;
         $txt .= Flags::isON($this->is_single) ? "S" : "-" ;
         $txt .= Flags::isON($this->is_ban) ? "B" : "-" ;
         return $txt;

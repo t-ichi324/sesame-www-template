@@ -1,6 +1,6 @@
 {{@layout layout/base, layout/base-ajax}}
 
-<form method="post" action="{{@url}}">
+<form method="post" action="{{:url}}">
     <?php FormEcho::tag_hidden("sch_id"); ?>
     <div class="row">
         <div class="col-md-6">

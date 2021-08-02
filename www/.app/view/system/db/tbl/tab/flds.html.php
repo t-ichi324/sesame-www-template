@@ -1,7 +1,7 @@
 {{@layout layout/base}}
 <div class="tb-row margin-sm-top">
     <div class="tb-cell-r">
-        <a class="btn btn-default ajax-modal" href="{{@url ../flds-copy}}">COPY</a>
+        <a class="btn btn-default ajax-modal" href="{{:url ../flds-copy}}">COPY</a>
         <button class="btn btn-default" type="button" onclick="add_fld();">ADD</button>
     </div>
 </div>
@@ -28,7 +28,7 @@
         </thead>
         <tbody>
             <?php Model::set("flds", Form::get("list",array())); ?>
-            {{@require-vp tab/flds-tr}}
+            {{:require tab/flds-tr}}
         </tbody>
     </table>
 </div>

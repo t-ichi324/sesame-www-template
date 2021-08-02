@@ -1,6 +1,5 @@
 <?php
-//@ Assign =================================
-include __DIR__."/-meta.php";
+//@ META ===================================
 
 Meta::vprefix("+/kv");
 Meta::breadcrumb( __("system.menu-kv") , "+/kv");

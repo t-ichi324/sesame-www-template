@@ -1,7 +1,5 @@
 <?php
-//@ Assign ===============================
-include __DIR__."/-meta.php";
-
+//@ META ==================================
 //@=========================================
 
 class IndexController extends IAuthController{

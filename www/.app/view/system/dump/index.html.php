@@ -5,7 +5,7 @@
 <p>{{__("system.dump-note")}}</p>
 </strong>
 <br>
-<form action="{{@url}}" method="post" style="margin-bottom: 40px">
+<form action="{{:url}}" method="post" style="margin-bottom: 40px">
     <button type="submit">{{__("system.run-backup")}}</button><label style="margin-left: 20px"><input type="checkbox" value="1" required> {{__("agree")}}</label>
 </form>
 <hr>
@@ -21,7 +21,7 @@
     {{@endif}}
     <ul style="padding-top: 20px">
     {{@each Model::get("dumps") as $n}}
-    <li><a href="{{@url /download?n=[$n]}}">{{$n}}</a></li>
+    <li><a href="{{:url /download?n=[$n]}}">{{$n}}</a></li>
     {{@endeach}}
     </ul>
 </div>

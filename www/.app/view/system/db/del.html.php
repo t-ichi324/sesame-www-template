@@ -1,6 +1,6 @@
 {{@layout layout/base, layout/base-ajax}}
 
-<form method="post" action="{{@url}}">
+<form method="post" action="{{:url}}">
     <?php FormEcho::tag_hidden("sch_id", "phy_name"); ?>
     <p>{{__("delete-cnf-*", Form::get("phy_name"))}}</p>
     

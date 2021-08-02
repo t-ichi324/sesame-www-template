@@ -1,8 +1,6 @@
 <?php
-//@ Assign =================================
-// + Setting
+//@ META ===================================
 Meta::vprefix("sandbox");
-
 //@=========================================
 
 class SandboxController extends IController{

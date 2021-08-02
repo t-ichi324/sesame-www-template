@@ -33,7 +33,6 @@
         <p>{{__("email.body")}}</p>
         <div><pre class="mail-tmp">{{*body}}</pre></div>
         
-        
         <div class="tb-row">
             <div class="tb-cell">
                 <form action="{{/admin/user/send-email}}" method="post">

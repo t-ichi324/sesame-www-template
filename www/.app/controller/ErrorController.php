@@ -1,10 +1,6 @@
 <?php
-//@ Assign =================================
-// + Setting
+//@ META ===================================
 Meta::vprefix(".err");
-
-// + Hierarcy
-//PageInfo::push_title("エラー", null);
 //@=========================================
 
 class ErrorController extends IErrorController{

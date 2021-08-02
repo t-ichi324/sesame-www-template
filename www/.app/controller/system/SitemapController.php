@@ -1,7 +1,5 @@
 <?php
-//@ Assign =================================
-include __DIR__."/-meta.php";
-
+//@ META ===================================
 Meta::vprefix("+/sitemap");
 Meta::action("+/sitemap");
 Meta::breadcrumb( __("system.menu-sitemap") , "+/sitemap");
