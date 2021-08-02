@@ -4,22 +4,7 @@
 
 class UploadController extends IController{
     public function index() {
-        $ret = new UploadInfo();
-        $ret->allow = ini_get("file_uploads");
-        
-        $ret->maxsize = $this->return_bytes(ini_get("upload_max_filesize"));
-        
-        $post = $this->return_bytes(ini_get("post_max_size"));
-        if($post > 0 && $post < $ret->maxsize){
-            $ret->maxsize = $post;
-        }
-        
-        $mem = $this->return_bytes(ini_get("memory_limit"));
-        if($mem > 0 && $mem < $ret->maxsize){
-            $ret->maxsize = $mem;
-        }
-        
-        return Response::json($ret);
+        return Response::notFound();
     }
     
     public function _post_index(){
@@ -52,25 +37,6 @@ class UploadController extends IController{
         }
         return Response::notFound();
     }
-    
-    private function return_bytes($val) {
-        $val = trim($val);
-        $int = intval($val);
-        $last = strtolower($val[strlen($val)-1]);
-        switch($last) {
-            case 'g':
-                $int *= 1024;
-            case 'm':
-                $int *= 1024;
-            case 'k':
-                $int *= 1024;
-        }
-        return $int;
-    }
-}
-class UploadInfo{
-    public $allow;
-    public $maxsize;
 }
 class UploadResult{
     public $err;

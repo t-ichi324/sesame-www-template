@@ -15,25 +15,19 @@
 {{@endsec}}
 
 <h2>FileUpload</h2>
-<p>this is test page.</p>
 
 <table id="uploads" class="table">
     <tbody>
     </tbody>
 </table>
 
-<div id='dragarea'>Please Drop Here</div>
+<div id='dragarea' data-maxsize="{{Env::max_size_uploads()}}">Please Drop Here</div>
 
-<p>
-    hello,
-</p>
-<p>
-please drp@
-</p>
+
 {{@sec js}}
-<script src="{{/js/upload.js}}" crossorigin="anonymous"></script>
+<script src="{{/js/asyncUpload.js}}" crossorigin="anonymous"></script>
 <script>
-    upload.init('{{/api/upload}}', 'dragarea', function(ret){
+    asyncUpload.init('{{/api/upload}}', 'dragarea', function(ret){
         try{
             var json = JSON.parse(ret);
             if(json.err == 0){
@@ -44,10 +38,11 @@ please drp@
                 tr += "</td></tr>";
                 $('#uploads tbody').append(tr);
             }
-            upload.close();
+            asyncUpload.close();
         }catch(ex){
-            upload.showError("Error!!");
+            asyncUpload.show("Error!!");
         }
+    }, function(err){
     });
 </script>
 {{@endsec}}

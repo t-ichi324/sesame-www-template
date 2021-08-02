@@ -1,6 +1,6 @@
 {{@layout layout/base}}
 
-<p>スキーマ一覧</p>
+<p>Sch</p>
 <div class="tb-row">
     <div class="tb-cell-r">
         <a class="btn btn-primary" href="{{:url add}}">{{__("newadd")}}</a>
