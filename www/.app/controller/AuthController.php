@@ -2,6 +2,9 @@
 //@ META ===================================
 Meta::vprefix("auth");
 Meta::csrf(true);
+
+// Meta::filter_allow("192.168.1.1");
+
 //@=========================================
 
 class AuthController extends IController{

@@ -21,14 +21,14 @@
             <div class="card-body">{{__("system.desc-log")}}</div>
         </div>
     </div>
-    <!---
+    <?php /*
     <div class="col-md-4">
         <div class="card">
             <div class="card-header"><a href="{{:url /lang}}">{{__("system.menu-lang")}}</a></div>
             <div class="card-body">{{__("system.desc-lang")}}</div>
         </div>
     </div>
-    -->
+     */ ?>
     <div class="col-md-4">
         <div class="card">
             <div class="card-header"><a href="{{:url sitemap}}">{{__("system.menu-sitemap")}}</a></div>

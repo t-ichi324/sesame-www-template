@@ -13,6 +13,7 @@ CREATE TABLE `user_actual`(
   `is_deleted` INT(1) NOT NULL DEFAULT 0 COMMENT '削除済み\n1:削除済み',
   `is_ban` INT(1) NOT NULL DEFAULT 0 COMMENT '利用停止\n1:BAN',
   `is_single` INT(1) NOT NULL DEFAULT 0 COMMENT '同時ログイン判定\n1:重複ログイン判定',
+  `is_tfa` INT(1) NOT NULL DEFAULT 0 COMMENT '2段階認証',
   `session_id` VARCHAR(255) COMMENT 'セッションID',
   `term_start` DATE COMMENT '利用開始',
   `term_end` DATE COMMENT '利用期限',
