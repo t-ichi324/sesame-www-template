@@ -1,5 +1,7 @@
 <?php
-    /* If you change the core file, please change loader.php name */
+    /*
+     * https://github.com/t-ichi324/sesame-www-template
+     */
     $sys = __DIR__."/../../.sesame/init.php";
     if(file_exists($sys)){
         include_once $sys; 

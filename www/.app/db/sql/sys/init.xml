@@ -13,9 +13,16 @@
         insert into app_kv(`cl`,`key`,`val`,`sort`) values('app_mail_cl','register','Register Mail', 1);
         insert into app_kv(`cl`,`key`,`val`,`sort`) values('app_mail_cl','forgot','Forgot Mail', 2);
         insert into app_kv(`cl`,`key`,`val`,`sort`) values('app_mail_cl','contact','Contact Mail', 3);
+        insert into app_kv(`cl`,`key`,`val`,`sort`) values('app_mail_cl','two-factor','Two-factor Mail', 4);
         
         insert into app_kv(`cl`,`key`,`val`,`sort`) values('contact_cl','consul','Consultation', 1);
         insert into app_kv(`cl`,`key`,`val`,`sort`) values('contact_cl','other','Other', 2);
+    </sql>
+    <sql key="default-mail">
+        insert into app_mail(`trigger`,`subject`,`sender_addr`,`sender_name`, `body`) values('register', 'register', 'noreply@example.com', 'example.com', 'Thank you for registeringg.');
+        insert into app_mail(`trigger`,`subject`,`sender_addr`,`sender_name`, `body`) values('contact', 'contact', 'noreply@example.com', 'example.com', 'Thank you for contact.');
+        insert into app_mail(`trigger`,`subject`,`sender_addr`,`sender_name`, `body`) values('forgot', 'forgot', 'noreply@example.com', 'example.com', 'NEW PASSWORD: {password}');
+        insert into app_mail(`trigger`,`subject`,`sender_addr`,`sender_name`, `body`) values('two-factor', 'two-factor', 'noreply@example.com', 'example.com', 'ONETIME TOKEN : {token}');
     </sql>
     
     <sql key="default-user">
