@@ -10,6 +10,7 @@ class IndexController extends IController{
         try{
             $x = new DbXml();
             $x->file("sys/init")->sql("default-kv")->execute();
+            $x->file("sys/init")->sql("default-mail")->execute();
             $x->file("sys/init")->sql("default-user")->execute();
             return "success";
         } catch (Exception $ex) {
