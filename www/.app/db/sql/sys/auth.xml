@@ -6,6 +6,12 @@
             email = :id 
             AND password= :pw
     </sql>
+    
+    <sql key="login-oauth" param="id">
+        SELECT id FROM user 
+        WHERE 
+            email = :id
+    </sql>
 
     <sql key="data" param="id,session_id">
         SELECT id, email, name, company, roles, is_ban, is_tfa

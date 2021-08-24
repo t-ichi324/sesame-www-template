@@ -10,7 +10,7 @@
                     <?php
                         FormEcho::tag_option("cl", "", "--- ".__("please-select")." ---");
                         foreach (Model::get("cl_list", array()) as $k => $v){
-                            FormEcho::tag_option("cl", $k, __("kv.".$v));
+                            FormEcho::tag_option("cl", $k, $v);
                         }
                     ?>
                 </select>

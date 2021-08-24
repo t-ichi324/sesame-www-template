@@ -9,11 +9,12 @@ class KvController extends IAuthController{
     
     private function makeList(){
         $cl_list = [
-            "user_role" => "user_role",
-            "app_data_cl" => "app_data_cl",
-            "app_mail_cl" => "app_mail_cl",
-            "app_post_cl" => "app_post_cl",
-            "contact_cl" => "contact_cl",
+            "user_role" => "(System) UserRole",
+            "app_data_cl" => "(System) AppData ",
+            "app_mail_cl" => "(System) AppMail ",
+            "app_post_cl" => "Post Category",
+            "contact_cl" => "Contact Category",
+            "oauth" => "OAuth Setting",
             /*ここにマスター項目を追加*/
         ];
         
