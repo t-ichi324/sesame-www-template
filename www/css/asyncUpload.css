@@ -7,11 +7,14 @@
     margin-bottom: 1rem;
     position: relative;
 }
-.asyncUpload-area.dragover{ border-color: #66f; }
+.asyncUpload-area.dragover{
+    border-color: #66f;
+}
 .asyncUpload-area .asyncUpload-area-thumb{
     display: inline-block;
     width: 100%;
     max-height: 200px;
+    min-height: 200px;
     object-fit: contain;
 }
 .asyncUpload-area .asyncUpload-area-thumb-clear{

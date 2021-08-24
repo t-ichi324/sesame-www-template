@@ -1,7 +1,7 @@
 let asyncUpload = {
-    html:  '<div id="__drap__progress" style="position:fixed; background-color:rgba(255,255,255,0.9); top:0;left:0;width:100vw;height:100vh;text-align:center; padding-top:40vh; font-size:1.5rem;z-index=3000;">'
+    html:  '<div id="__drap__progress" style="position:fixed; background-color:rgba(255,255,255,0.9); top:0;left:0;width:100vw;height:100vh;text-align:center; padding-top:40vh; font-size:1.5rem;z-index:3000;">'
         + '<div id="__drap__progress_msg"><p>Uploading...</p><br></div>'
-        + '<span id="__drap__progress_close" onclick="asyncUpload.close();" style="display:none; margin-top:2rem; padding:.5rem 1.5rem; background-color:#eee; border:1px solid #000; color:#000; font-size:1rem;cursor: pointer;">Close</span>'
+        + '<span id="__drap__progress_close" onclick="asyncUpload.close();" style="display:none; margin-top:2rem; padding:.5rem 1.5rem; background-color:#fafafa; border:1px solid #888; color:#333; font-size:1rem;cursor: pointer;">&times;</span>'
         + '</div>',
     class_dragover: 'dragover',
     
@@ -85,7 +85,7 @@ let asyncUpload = {
                     }
                 }
                 if(deny){
-                    asyncUpload.show('Not supported this file format.');
+                    asyncUpload.show('Not supported file format.');
                     return;
                 }
             }
@@ -109,16 +109,16 @@ let asyncUpload = {
             });
 
             xhr.upload.addEventListener('abort', (e2) => {
-                asyncUpload.show('Upload abort');
+                asyncUpload.show('Upload Abort.');
                 if(errCallback != null && errCallback != undefined){ errCallback("abort"); }
             });
             xhr.upload.addEventListener('timeout', (e2) => {
-                asyncUpload.show('Upload timeout');
+                asyncUpload.show('Upload Timeout.');
                 if(errCallback != null && errCallback != undefined){ errCallback("timeout"); }
             });
             xhr.upload.addEventListener('error', (e2) => {
-                asyncUpload.show('Upload faild');
-                if(errCallback != null && errCallback != undefined){ errCallback("faild"); }
+                asyncUpload.show('Upload Error.');
+                if(errCallback != null && errCallback != undefined){ errCallback("error"); }
             });
 
             xhr.upload.addEventListener('load', (e2) => {
