@@ -1,5 +1,5 @@
 <?php
-$dt =  [ "INT", "VARCHAR","TEXT", "BOOLEAN", "FLOAT","DECIMAL", "DATE", "DATETIME", "TIMESTAMP"];
+$dt =  [ "INT","TINYINT", "VARCHAR","TEXT","LONGTEXT", "BOOLEAN", "FLOAT","DECIMAL", "DATE", "DATETIME", "TIMESTAMP"];
 $flds = Model::get("flds");
 foreach($flds as $e){
     FormEcho::set_bundle($e, "list[][", "]");

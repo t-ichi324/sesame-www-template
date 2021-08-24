@@ -1,6 +1,4 @@
 {{@layout layout/base, layout/base-ajax}}
-
-<p>{{__("detail")}}</p>
 {{@require layout/asset/user-prof}}
 
 <hr class="margin-sm">

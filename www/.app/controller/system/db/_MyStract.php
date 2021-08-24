@@ -1,7 +1,7 @@
 <?php
 class MyStract{
     public static function DB_PATH(){
-        return Path::app("db","MyStract.db");
+        return Path::app("db","stract.db");
     }
     public static function get(){
         $LITE = array(

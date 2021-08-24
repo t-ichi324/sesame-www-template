@@ -60,10 +60,10 @@
 
             <td><small><a class="ajax-modal action-item" data-title="{{ __("admin.menu-user-setting") }}" href="{{:url setting?id=[$id]}}">{{$e->getSettingName()}}<div class="admin-remarks">{{$e->remarks}}</div></a></small></td>
             <td class="action">
-                <a class="ajax-modal action-item" href="{{:url pw?id=[$id]}}">{{ __("edit-password") }}</a>
+                <a class="ajax-modal action-item" href="{{:url pw?id=[$id]}}" data-title="{{ __("edit-password") }}"><i class="fa fa-key" aria-hidden="true"></i></a>
                 
                 {{@if $myId != $id}}
-                <a class="ajax-modal action-item" href="{{:url del?id=[$id]}}">{{ __("delete") }}</a>
+                <a class="ajax-modal action-item" href="{{:url del?id=[$id]}}" data-title="{{ __("admin.menu-user-del") }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                 {{@endif}}
             </td>
         </tr>

@@ -6,7 +6,11 @@
 </style>
 {{@endsec}}
 
-<p>{{__("prof.menu-info")}}</p>
+<div style="text-align: center; margin-bottom: 2rem;">
+    <img style="max-height: 200px;object-fit: contain;" src="<?= AsyncUploadImg::getSrcPub("img", ContentConf::DIR_USER, ContentConf::NO_AVATAR); ?>">
+</div>
+
+
 <table class="table margin-sm-bottom">
     <tbody>
         <tr>

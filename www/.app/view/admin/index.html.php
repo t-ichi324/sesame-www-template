@@ -40,6 +40,12 @@
     
     <div class="col-md-4">
         <div class="card">
+            <div class="card-header"><a href="{{:url app-post}}">{{ __("admin.menu-apppost") }}</a></div>
+            <div class="card-body">{{ __("admin.desc-apppost") }}</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
             <div class="card-header"><a href="{{:url app-data}}">{{ __("admin.menu-appdata") }}</a></div>
             <div class="card-body">{{ __("admin.desc-appdata") }}</div>
         </div>

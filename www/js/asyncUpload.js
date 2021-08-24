@@ -1,5 +1,5 @@
 let asyncUpload = {
-    html:  '<div id="__drap__progress" style="position:fixed; background-color:rgba(255,255,255,0.9); top:0;left:0;width:100vw;height:100vh;text-align:center; padding-top:40vh; font-size:1.5rem;">'
+    html:  '<div id="__drap__progress" style="position:fixed; background-color:rgba(255,255,255,0.9); top:0;left:0;width:100vw;height:100vh;text-align:center; padding-top:40vh; font-size:1.5rem;z-index=3000;">'
         + '<div id="__drap__progress_msg"><p>Uploading...</p><br></div>'
         + '<span id="__drap__progress_close" onclick="asyncUpload.close();" style="display:none; margin-top:2rem; padding:.5rem 1.5rem; background-color:#eee; border:1px solid #000; color:#000; font-size:1rem;cursor: pointer;">Close</span>'
         + '</div>',
@@ -18,21 +18,26 @@ let asyncUpload = {
         var maxsize = droparea.getAttribute("data-maxsize");
         if(maxsize === undefined || maxsize === "" ){ maxsize = 0; }
         
-        if(document.getElementById('__drap__input') === null){
+        var allows = droparea.getAttribute("data-allows");
+        if(allows === undefined){ allows = ""; }
+        allows = allows.toLowerCase();
+        
+        var inputId = "__drap__input__" + areaId;
+        if(document.getElementById(inputId) === null){
             document.getElementsByTagName("body")[0]
-                    .insertAdjacentHTML("beforeend", '<input id="__drap__input" type="file" style="display:none;" />');
-            var inp = document.getElementById("__drap__input");
+                    .insertAdjacentHTML("beforeend", '<input id="'+inputId+'" type="file" style="display:none;" />');
+            var inp = document.getElementById(inputId);
             
             inp.addEventListener('change', function(e){
                 // ドロップしたファイルの取得
                 var files = e.target.files;
                 var file = files[0];
                 inp.value = null;
-                asyncUpload.xhr_post(url, file, maxsize, callback, errCallback);
+                asyncUpload.xhr_post(url, file, maxsize, allows, callback, errCallback);
             });
             
             droparea.addEventListener('click', function(e){
-                document.getElementById("__drap__input").click();
+                document.getElementById(inputId).click();
             });
         }
         
@@ -51,11 +56,11 @@ let asyncUpload = {
             // ドロップしたファイルの取得
             var files = e.dataTransfer.files;
             var file = files[0];
-            asyncUpload.xhr_post(url, file, maxsize, callback, errCallback);
+            asyncUpload.xhr_post(url, file, maxsize, allows, callback, errCallback);
         });
     },
 
-    xhr_post: function(url, file, maxsize, callback, errCallback){
+    xhr_post: function(url, file, maxsize, allows, callback, errCallback){
         if(document.getElementById('__drap__wrap') == null){
             document.getElementsByTagName("body")[0]
                     .insertAdjacentHTML("beforeend", asyncUpload.html);
@@ -65,6 +70,22 @@ let asyncUpload = {
                 if(file.size > maxsize){
                     asyncUpload.show('Upload sizeover, should be '+ maxsize +'byte or less.');
                     if(errCallback != null && errCallback != undefined){ errCallback("sizeover"); }
+                    return;
+                }
+            }
+            
+            if(allows !== ""){
+                var deny = true;
+                var ext = file.name.split('.').pop().toLowerCase();
+                var sp = allows.split(',');
+                for(var i = 0; i<sp.length; i++){
+                    if(ext == sp[i].trim()){
+                        deny = false;
+                        break;
+                    }
+                }
+                if(deny){
+                    asyncUpload.show('Not supported this file format.');
                     return;
                 }
             }

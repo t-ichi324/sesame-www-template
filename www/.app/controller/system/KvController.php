@@ -12,9 +12,9 @@ class KvController extends IAuthController{
             "user_role" => "user_role",
             "app_data_cl" => "app_data_cl",
             "app_mail_cl" => "app_mail_cl",
+            "app_post_cl" => "app_post_cl",
             "contact_cl" => "contact_cl",
             /*ここにマスター項目を追加*/
-            "event_cl" => "event_cl",
         ];
         
         Model::set("cl_list", $cl_list);

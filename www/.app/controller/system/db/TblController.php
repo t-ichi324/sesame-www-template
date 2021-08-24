@@ -111,7 +111,7 @@ class TblController extends IAuthController{
     public function imjson(){
         $f = new DbTblEditForm();
         $f->tbl_id = "";
-        $f->phy_name = "JSONから新規テーブルを作成";
+        $f->phy_name = "Create table from JSON";
         return "imjson";
     }
     public function _post_imjson(){

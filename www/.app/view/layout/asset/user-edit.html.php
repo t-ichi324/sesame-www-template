@@ -1,3 +1,6 @@
+<?php AsyncUploadImg::rendForm("tmp_name", "img", ContentConf::DIR_USER, ContentConf::NO_AVATAR); ?>
+<hr>
+
 <label class="required">{{__("prof.name")}}</label>
 <input class="form-control" type="text" required maxlength="100" <?php FormEcho::attr_nameVal("name"); ?> placeholder="{{__("prof.name-ex")}}"/>
 <label class="required">{{__("prof.email")}}</label>

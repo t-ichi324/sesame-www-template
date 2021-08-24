@@ -13,7 +13,7 @@ class UploadController extends IController{
         if(isset($_FILES["file"])){
             try{
                 $ret->size = filesize($_FILES['file']['tmp_name']);
-                $ret->tmp_name = sha1($_FILES["file"]["tmp_name"]);
+                $ret->tmp_name = date("Ymd") . "-" . sha1_file($_FILES["file"]["tmp_name"]);
                 $ret->name = $_FILES["file"]["name"];
 
                 $na = explode(".", $ret->name);

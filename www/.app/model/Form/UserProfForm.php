@@ -6,6 +6,8 @@ use Validator;
 class UserProfForm extends \Form\IUserEditForm{
     use \Entity\__User;
     
+    public $tmp_name;
+    
     public function hasError() {
         Validator::required($this->name, __("name") );
         if(!UserUtil::isAvailable_email($this->email, $this->id)){
@@ -15,6 +17,8 @@ class UserProfForm extends \Form\IUserEditForm{
     }
     
     public function update(){
+        \AsyncUploadImg::saveToPub("tmp_name", "img", \ContentConf::DIR_USER);
+        
         $e = new \Entity\User($this);
         UserUtil::update($e);
     }

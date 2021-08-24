@@ -7,6 +7,8 @@ class UserAddForm extends \IForm{
     use \Entity\__User;
     public $pw;
     public $confirm;
+    
+    public $tmp_name;   //IMG_TMP
  
     public function hasError() {
         Validator::required($this->name, __("name"));
@@ -23,6 +25,8 @@ class UserAddForm extends \IForm{
     }
     
     public function insert(){
+        \AsyncUploadImg::saveToPub("tmp_name", "img", \ContentConf::DIR_USER);
+        
         $e = new \Entity\User($this);
         $e->password = $this->pw;
         

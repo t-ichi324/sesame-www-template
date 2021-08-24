@@ -18,6 +18,13 @@ if(Env::isDev()){
     include_once Conf::DIR_DB.'db-conf-real.php'; 
 }
 
+class ContentConf{
+    const DIR_UPLOAD = "/contents/upload/";
+    const DIR_USER = "/contents/user/";
+    const NO_IMAGE = "/img/no-image.png";
+    const NO_AVATAR = "/img/no-avatar.png";
+}
+
 class Conf {
     const SITE_NAME  = "Template";
     const SITE_HOME_NAME = "Template";
