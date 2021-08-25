@@ -22,7 +22,7 @@ class ContactController extends IController{
         
         $public_key = AppKv::getVal("g-recaptcha", "public-key");
         if(!empty($public_key)){
-            $private_key = AppKv::getVal("g-recaptcha", "pirvate-key");
+            $private_key = AppKv::getVal("g-recaptcha", "prviate-key");
             $log = Path::tmp("log", "GoogleRecaptcha.log");
             $code = GoogleRecaptcha::valid($private_key, $log);
             if($code == 1){ Message::addError( __("etc.recaptcha-error-check")); return ""; }
