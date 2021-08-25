@@ -1,11 +1,5 @@
 {{@layout layout/base}}
 
-{{@sec css}}
-<?php if(Env::isReal()){ ?>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<?php } ?>
-{{@endsec}}
-
 <div class="row">
     <div class="{{col_md_class()}}">
         <form action="{{/contact/}}" method="post">
@@ -21,12 +15,8 @@
             <div class="form-group">
                 <label>{{__("cate")}}</label>
                 <select class="form-control" name="cl" required>
-                    <?php
-                        foreach (ContactUtil::CL_MASTER() as $k=>$v){
-                            FormEcho::tag_option("cl", $k, $v);
-                        }
-                    ?>
-                </select>            
+                    <?php foreach (ContactUtil::CL_MASTER() as $k=>$v){  FormEcho::tag_option("cl", $k, $v); } ?>
+                </select>
             </div>
             
             <div class="form-group">
@@ -35,9 +25,7 @@
             </div>
             
             <div class="checkbox margin-sm">
-                <?php if(Env::isReal()){ ?>
-                <div class="g-recaptcha" data-sitekey="{{AppKv::getVal("recaptcha", "public-key")}}"></div>
-                <?php } ?>
+                {{@require layout/asset/g-recaptcha.html}}
             </div>
             <div class="tb-row">
                 <div class="tb-cell-r">

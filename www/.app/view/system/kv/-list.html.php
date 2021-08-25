@@ -60,6 +60,10 @@
         {{@endeach}}
     </tbody>
 </table>
+
+{{@if Model::isNotEmpty("key-note")}}
+<p style="color: #F00">{{Model::get("key-note")}}</p>
+{{@endif}}
 <p>{{__("system.kv-note")}}</p>
 <?php }else{ ?>
 <p>{{__("please-select")}}</p>

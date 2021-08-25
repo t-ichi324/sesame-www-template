@@ -9,13 +9,14 @@ class KvController extends IAuthController{
     
     private function makeList(){
         $cl_list = [
-            "user_role" => "(System) UserRole",
+            "user_role"   => "(System) UserRole",
             "app_data_cl" => "(System) AppData ",
             "app_mail_cl" => "(System) AppMail ",
+            "oauth"       => "(API) OAuth",              //default_role / google_client_id / google_secret / google_callback / facebook_client_id / facebook_secret / facebook_callback
+            "g-recaptcha" => "(API) GoogleRecaptcha",    //public-key / private-key
+            "g-analytics" => "(API) GoogleAnalytics",    //gid
             "app_post_cl" => "Post Category",
-            "contact_cl" => "Contact Category",
-            "oauth" => "OAuth Setting",
-            "recaptcha" => "GoogleRecaptcha Setting"
+            "contact_cl"  => "Contact Category",
             /*ここにマスター項目を追加*/
         ];
         
@@ -25,6 +26,9 @@ class KvController extends IAuthController{
         if(StringUtil::isNotEmpty($f->cl)){
             $q = AppKv::query($f->cl);
             $f->setDbQueryList($q);
+            if($f->cl == "oauth"){ Model::set("key-note", "[Fixed Key Name]: default_role / google_client_id / google_secret / google_callback / facebook_client_id / facebook_secret / facebook_callback"); }
+            if($f->cl == "g-recaptcha"){ Model::set("key-note", "[Fixed Key Name]: public-key / private-key"); }
+            if($f->cl == "g-analytics"){ Model::set("key-note", "[Fixed Key Name]: gid"); }
         }
     }
     

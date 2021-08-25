@@ -20,12 +20,13 @@ class ContactController extends IController{
     public function _post_index(){
         $f = new \Form\ContactForm();
         
-        if(Env::isReal()){
+        $public_key = AppKv::getVal("g-recaptcha", "public-key");
+        if(!empty($public_key)){
+            $private_key = AppKv::getVal("g-recaptcha", "pirvate-key");
             $log = Path::tmp("log", "GoogleRecaptcha.log");
-            $key = AppKv::getVal("recaptcha", "pirvate-key");
-            $code = GoogleRecaptcha::valid($key, $log);
-            if($code == 1){ Message::addError( __("etc.recaptcha-error-check") ); return ""; }
-            if($code == 2){ Message::addError( __("etc.recaptcha-error-valid") ); return ""; }
+            $code = GoogleRecaptcha::valid($private_key, $log);
+            if($code == 1){ Message::addError( __("etc.recaptcha-error-check")); return ""; }
+            if($code == 2){ Message::addError( __("etc.recaptcha-error-valid")); return ""; }
         }
         
         if($f->hasError()){ return "index"; }
