@@ -3,6 +3,7 @@
 <head>
 {{@require layout/meta}}
 {{@require layout/file-css}}
+{{@require layout/asset/g-analytics}}
 {{@yield css}}
 </head>
 <body class="pb-5">

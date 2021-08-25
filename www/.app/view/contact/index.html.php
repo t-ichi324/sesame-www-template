@@ -24,8 +24,8 @@
                 <textarea class="form-control" rows="6" <?php FormEcho::attr_name("body"); ?> required>{{*body}}</textarea>
             </div>
             
-            <div class="checkbox margin-sm">
-                {{@require layout/asset/g-recaptcha.html}}
+            <div class="margin-sm">
+                {{@require layout/asset/g-recaptcha}}
             </div>
             <div class="tb-row">
                 <div class="tb-cell-r">

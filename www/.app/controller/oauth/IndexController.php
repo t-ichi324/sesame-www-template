@@ -6,6 +6,7 @@ class IndexController extends IController{
     private $error_redirect = "/auth";
     private $ok_redirect = "/home";
     
+    /** TEST */
     public function index(){
         $google_client_id = AppKv::getVal("oauth", "google_client_id");
         $google_callback = AppKv::getVal("oauth", "google_callback");
@@ -24,6 +25,8 @@ class IndexController extends IController{
         if(empty(Form::get("code"))){
             $google_client_id = AppKv::getVal("oauth", "google_client_id");
             $google_callback = AppKv::getVal("oauth", "google_callback");
+            if(empty($google_client_id) || empty($google_callback)){ return Response::notFound(); }
+            
             $url = OAuthGoogle::getUrlAuth($google_client_id, Url::get($google_callback));
             return Response::redirect($url);
         }else{
@@ -34,6 +37,8 @@ class IndexController extends IController{
         if(empty(Form::get("code"))){
             $facebook_client_id = AppKv::getVal("oauth", "facebook_client_id");
             $facebook_callback = AppKv::getVal("oauth", "facebook_callback");
+            if(empty($facebook_client_id) || empty($facebook_callback)){ return Response::notFound(); }
+            
             $url = OAuthFacebook::getUrlAuth($facebook_client_id, Url::get($facebook_callback));
             return Response::redirect($url);
         }else{
