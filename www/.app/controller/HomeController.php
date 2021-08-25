@@ -8,6 +8,5 @@ class HomeController extends IAuthController{
     public function index(){
         return "";
     }
-    
 }
 ?>

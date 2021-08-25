@@ -22,7 +22,7 @@ class ContactController extends IController{
         
         if(Env::isReal()){
             $log = Path::tmp("log", "GoogleRecaptcha.log");
-            $key =  __("etc.recaptcha-pirvate-key");
+            $key = AppKv::getVal("recaptcha", "pirvate-key");
             $code = GoogleRecaptcha::valid($key, $log);
             if($code == 1){ Message::addError( __("etc.recaptcha-error-check") ); return ""; }
             if($code == 2){ Message::addError( __("etc.recaptcha-error-valid") ); return ""; }

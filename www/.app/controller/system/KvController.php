@@ -15,6 +15,7 @@ class KvController extends IAuthController{
             "app_post_cl" => "Post Category",
             "contact_cl" => "Contact Category",
             "oauth" => "OAuth Setting",
+            "recaptcha" => "GoogleRecaptcha Setting"
             /*ここにマスター項目を追加*/
         ];
         

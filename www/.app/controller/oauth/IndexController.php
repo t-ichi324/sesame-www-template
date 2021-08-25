@@ -19,32 +19,61 @@ class IndexController extends IController{
         return Response::html($html);
     }
     
+    /** Redirect ---------------------------------------------------------------*/
     public function google(){
-        $log = Path::tmp("google-oauth.log");
+        if(empty(Form::get("code"))){
+            $google_client_id = AppKv::getVal("oauth", "google_client_id");
+            $google_callback = AppKv::getVal("oauth", "google_callback");
+            $url = OAuthGoogle::getUrlAuth($google_client_id, Url::get($google_callback));
+            return Response::redirect($url);
+        }else{
+            return $this->googleCallback();
+        }
+    }
+    public function facebook(){
+        if(empty(Form::get("code"))){
+            $facebook_client_id = AppKv::getVal("oauth", "facebook_client_id");
+            $facebook_callback = AppKv::getVal("oauth", "facebook_callback");
+            $url = OAuthFacebook::getUrlAuth($facebook_client_id, Url::get($facebook_callback));
+            return Response::redirect($url);
+        }else{
+            return $this->facebookCallback();
+        }
+    }
+    
+    /** Callback ---------------------------------------------------------------*/
+    public function googleCallback(){
         $code = Form::get("code");
-        $google_client_id = AppKv::getVal("oauth", "google_client_id");
-        $google_client_secret= AppKv::getVal("oauth", "google_secret");
-        $google_callback = AppKv::getVal("oauth", "google_callback");
+        if(empty($code)){ return Response::redirect($this->error_redirect); }
         
-        $token = OAuthGoogle::getAccessToken($code, $google_client_id, $google_client_secret, Url::get($google_callback), $log);
+        $log = Path::tmp("log", "google-oauth.log");
+        $client_id = AppKv::getVal("oauth", "google_client_id");
+        $client_secret= AppKv::getVal("oauth", "google_secret");
+        $callback = AppKv::getVal("oauth", "google_callback");
+        
+        $token = OAuthGoogle::getAccessToken($code, $client_id, $client_secret, Url::get($callback), $log);
         $ui = OAuthGoogle::getUserInfo($token, $log);
         
         if(empty($ui)){ return Response::redirect($this->error_redirect); }
         
-        return $this->onRegisterLogin("facebook", $ui->email, $ui->given_name, $ui->family_name);
+        return $this->onRegisterLogin("google", $ui->email, $ui->given_name, $ui->family_name);
     }
     
-    public function facebook(){
-        $log = Path::tmp("facebook-oauth.log");
-        $code = Form::get("code");
-        $google_client_id = AppKv::getVal("oauth", "facebook_client_id");
-        $google_client_secret= AppKv::getVal("oauth", "facebook_secret");
-        $google_callback = AppKv::getVal("oauth", "facebook_callback");
+    public function facebookCallback(){
         
-        $token = OAuthFacebook::getAccessToken($code, $google_client_id, $google_client_secret, Url::get($google_callback), $log);
+        $code = Form::get("code");
+        if(empty($code)){ return Response::redirect($this->error_redirect); }
+        
+        $log = Path::tmp("log", "facebook-oauth.log");
+        $client_id = AppKv::getVal("oauth", "facebook_client_id");
+        $client_secret= AppKv::getVal("oauth", "facebook_secret");
+        $callback = AppKv::getVal("oauth", "facebook_callback");
+        
+        $token = OAuthFacebook::getAccessToken($code, $client_id, $client_secret, Url::get($callback), $log);
         $ui = OAuthFacebook::getUserInfo($token, $log);
         
         if(empty($ui)){ return Response::redirect($this->error_redirect); }
+        
         return $this->onRegisterLogin("facebook", $ui->email, $ui->first_name, $ui->last_name);
     }
     

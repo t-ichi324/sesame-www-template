@@ -36,7 +36,7 @@
             
             <div class="checkbox margin-sm">
                 <?php if(Env::isReal()){ ?>
-                <div class="g-recaptcha" data-sitekey="{{__("etc.recaptcha-public-key")}}"></div>
+                <div class="g-recaptcha" data-sitekey="{{AppKv::getVal("recaptcha", "public-key")}}"></div>
                 <?php } ?>
             </div>
             <div class="tb-row">

@@ -17,7 +17,12 @@
         </form>
         <div class="guide-bottom center">
             <a class="btn btn-link" href="{{/auth/forgot}}">{{__("auth.to-forgot")}}</a>
-            
+        </div>
+        
+        <hr>
+        <div class="center">
+            <a class="btn btn-link" href="{{/oauth/google}}">Google OAuth</a>
+            <a class="btn btn-link" href="{{/oauth/facebook}}">Facebook OAuth</a>
         </div>
     </div>
 </div>
